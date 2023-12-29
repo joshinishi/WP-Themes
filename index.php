@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<div class="content">WordPress</div>
+<div class="content"></div>
 
 
 

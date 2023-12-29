@@ -32,5 +32,10 @@
 
 }
  
- add_action('wp_enqueue_scripts', 'aquila_enqueue_scripts')
- ?>
+add_action('wp_enqueue_scripts', 'aquila_enqueue_scripts');
+
+
+include_once 'template-parts/custom-functions.php';
+
+?>
+
