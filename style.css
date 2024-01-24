@@ -13,3 +13,16 @@
  * License:           GNU General Public License v2.0 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  */
+
+.current_page_item a{
+    border-bottom: 1px solid black;
+    background-color: brown;
+    color: white;
+}
+.pagenot{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10%;
+
+}

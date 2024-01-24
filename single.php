@@ -1,13 +1,10 @@
 <?php
-/** 
- * Main Template File.
- * 
- * @package Aquila
- * 
- */
 
-get_header();
+    get_header();
+
 ?>
+
+
 
 <div class="content">
     <?php
@@ -20,10 +17,11 @@ get_header();
                     <p><?php the_excerpt(); ?></p>
                     <h2><?php the_title(); ?></h2>
                     <p><?php echo  get_the_date(); ?></p>
+                    <div><?php the_author(); ?></div>
+                    <div><?php the_content(); ?></div>
+                    <!-- <?php comment_form(); ?> -->
+                    <?php comments_template(); ?>
                     <a href="<?php the_permalink(22); ?>"><input type="button" value="Read More" name="">
-                </div>
-                <div class="sidebar">
-                    <?php get_sidebar(); ?>
                 </div>
            <?php
         } 
@@ -33,6 +31,4 @@ get_header();
 </div>
 
 
-
-<?php 
-get_footer();
+<?php get_footer(); ?>
