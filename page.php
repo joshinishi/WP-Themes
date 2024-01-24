@@ -25,15 +25,41 @@ $cat = get_categories(array('taxonomy'=>'category'));
         <div class="categories">
             <?php
                 foreach($cat as $value){
-            ?>
+                    ?>
         </div>
         <a href="<?php echo get_category_link($value->term_id); ?>">
             <h3><?php echo $value->name; ?>(<?php echo $value->count;  ?>)</h3>
         </a>
         <?php
             }
+            ?>
+    </div>
+    <div class="posts">
+        <?php
+        $wpnew = array(
+            'post_type' => 'post',  // Changed 'posts' to 'post'
+            'post_status' => 'publish'
+        );
+
+        $newsquery = new WP_Query($wpnew);
+    
+        while ($newsquery->have_posts()) {
+            $newsquery->the_post();
+            ?>
+            <article <?php post_class(); ?>>
+                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                <div class="entry-content">
+                    <?php the_content(); ?>
+                </div>
+            </article>
+            <?php
+        }
+    
+        // Restore original post data
+        wp_reset_postdata();
         ?>
     </div>
+
 </div>
 
 
