@@ -32,7 +32,7 @@ $cat = get_categories(array('taxonomy'=>'category'));
         </a>
         <?php
             }
-            ?>
+        ?>
     </div>
     <div class="posts">
         <?php
@@ -57,6 +57,18 @@ $cat = get_categories(array('taxonomy'=>'category'));
     
         // Restore original post data
         wp_reset_postdata();
+        ?>
+    </div>
+    <div class="categories">
+        <?php
+            $newcat = get_terms(['taxonomy' =>'category','hide_empty' => false]);
+            foreach($newcat as $newvalue){
+            ?>
+            <a href="<?php echo get_category_link($newvalue->term_id); ?>">
+                <h3><?php echo $newvalue->name; ?>(<?php echo $newvalue->count;  ?>)</h3>
+            </a>
+        <?php
+            }
         ?>
     </div>
 
