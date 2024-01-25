@@ -10,6 +10,7 @@
 <html lang="<?php language_attributes(); ?>">
 
 <head>
+    <!-- Get Dynamic Title -->
     <title><?php bloginfo('name'); ?> <?php wp_title(); ?> <?php if (is_front_page()) { echo "|"; bloginfo('description'); } ?> </title>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

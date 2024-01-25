@@ -10,18 +10,28 @@ $cat = get_categories(array('taxonomy'=>'category'));
 
 <div class="container">
     <div class="page-status">
+        <!-- Get dynamic Title -->
         <h1> <?php the_title(); ?> </h1>
     </div>
+
+     <!-- Get excerpt from post -->
     <?php the_excerpt(); ?>
+
+    <!-- Get thumbnail from post -->
     <?php the_post_thumbnail(array(500,500)); ?>
     <div class="about-content">
         <?php echo get_the_content(); ?>
         <?php $imgpath =  
             wp_get_attachment_image_src(get_post_thumbnail_id(), 'large'); 
         ?>
+
+    <!-- Get sidebar -->
         <div class="sidebar">
             <?php get_sidebar(); ?>
         </div>
+
+    <!-- Get categories from post -->
+
         <div class="categories">
             <?php
                 foreach($cat as $value){
@@ -34,6 +44,9 @@ $cat = get_categories(array('taxonomy'=>'category'));
             }
         ?>
     </div>
+
+    <!-- WP_Query use  -->
+
     <div class="posts">
         <?php
         $wpnew = array(
@@ -59,6 +72,8 @@ $cat = get_categories(array('taxonomy'=>'category'));
         wp_reset_postdata();
         ?>
     </div>
+
+    <!-- Get texonomy of post -->
     <div class="categories">
         <?php
             $newcat = get_terms(['taxonomy' =>'category','hide_empty' => false]);
