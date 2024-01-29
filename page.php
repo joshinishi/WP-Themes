@@ -76,7 +76,13 @@ $cat = get_categories(array('taxonomy'=>'category'));
     <!-- Get texonomy of post -->
     <div class="categories">
         <?php
-            $newcat = get_terms(['taxonomy' =>'category','hide_empty' => false]);
+            $newcat = get_terms([
+            'taxonomy' =>'category',
+            'hide_empty' => false,
+            'orderby' => 'name', 
+            'order' => 'DESC', 
+            'number' => '1'
+        ]);
             foreach($newcat as $newvalue){
             ?>
             <a href="<?php echo get_category_link($newvalue->term_id); ?>">
@@ -85,9 +91,12 @@ $cat = get_categories(array('taxonomy'=>'category'));
         <?php
             }
         ?>
-    </div>
-
+    </div>   
 </div>
 
 
 <?php get_footer(); ?>
+
+
+<!--                Wordpress Texonomy Template: 
+https://developer.wordpress.org/themes/template-files-section/taxonomy-templates/ -->
